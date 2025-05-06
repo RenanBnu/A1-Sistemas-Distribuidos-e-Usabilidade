@@ -1,0 +1,278 @@
+/* ======================= */
+/* estilo global           */
+/* ======================= */
+
+body {
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+#menu,
+#queue,
+#game {
+  margin-top: 30px;
+}
+
+/* Nome dos jogadores */
+#playerInfo {
+  font-size: 20px;
+  color: #ff00ff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #ff00ff;
+}
+
+#myName,
+#playerSymbol,
+#opponentName {
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 4px #00ffff;
+}
+
+/* Status do jogo (vez de, vitória, empate) */
+#status {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffff00;
+  margin: 15px 0;
+  text-shadow: 0 0 5px #ff0;
+}
+
+/* Indicação de turno */
+#turnPlayer {
+  font-size: 18px;
+  color: #00ffcc;
+  margin-bottom: 10px;
+}
+
+/* Botão de revanche */
+#rematchBtn {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+#rematchBtn:hover {
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+}
+
+/* ======================= */
+/* tabuleiro               */
+/* ======================= */
+
+#board {
+  position: relative;            
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.cell {
+  position: relative;               
+  z-index: 1;                       
+  width: 100px;
+  height: 100px;
+  font-size: 48px;
+  font-weight: bold;
+  border: 2px solid #fff;
+  background-color: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  text-shadow: 0 0 5px #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* Linha da vitória */
+#winning-line {
+  position: absolute;
+  width: 0;              
+  height: 6px;
+  background-color: #ff0000;
+  border-radius: 3px;
+  box-shadow: 0 0 8px #ff0000;
+  display: none;
+
+  pointer-events: none;
+  transform-origin: 50% 50%;
+
+  
+  z-index: 10;
+}
+
+
+/* ======================= */
+/* botões padrão           */
+/* ======================= */
+
+button {
+  background-color: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+button:hover {
+  background-color: #00ffff;
+  color: #000;
+  text-shadow: none;
+}
+
+/* ======================= */
+/* inputs de cor e select  */
+/* ======================= */
+
+input[type="color"],
+select {
+  background-color: #000;
+  color: #0ff;
+  border: 1px solid #0ff;
+  padding: 4px;
+  border-radius: 6px;
+  margin: 5px;
+}
+
+/* ======================= */
+/* Chat                    */
+/* ======================= */
+
+.chat {
+  position: relative;
+  width: 280px;
+  max-height: 380px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  margin: 20px auto 0;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.chat-header {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  background: #001f1f;
+  border-bottom: 1px solid #00ffff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chat-header h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #00ffff;
+  text-shadow: 0 0 4px #00ffff;
+}
+
+.chat-log {
+  flex: 1 1 auto;
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px;
+  overflow-y: auto;
+}
+
+.chat-log li {
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.chat-log li span.author {
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 3px #00ffff;
+}
+
+.chat-log li span.message {
+  color: #f0f0f0;
+}
+
+.chat-form {
+  flex: 0 0 auto;
+  display: flex;
+  border-top: 1px solid #00ffff;
+  padding: 8px 12px;
+  background: #001010;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.chat-input {
+  flex: 1 1 auto;
+  padding: 6px 8px;
+  background: #111;
+  border: 1px solid #00ffff;
+  border-radius: 6px;
+  color: #00ffff;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.chat-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.chat-send {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  background: #00ffff;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-send:hover {
+  background: #0ff;
+}
+
+.chat-send:active {
+  transform: translateY(1px);
+}
+
+/* Scrollbars customizados (Chrome/Edge/Webkit) */
+.chat-log::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-log::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 3px;
+}
+
+.chat[hidden] {
+  display: none !important;
+}

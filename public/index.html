@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="style/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Menu inicial -->
+  <div id="menu" class="menu">
+    <h2>Jogo da Velha</h2>
+    <button id="btn-local">Jogar Localmente</button>
+    <button id="btn-online">Jogar na Rede</button>
+  </div>
+
+  <!-- Fila de espera -->
+  <div id="queue" class="queue" hidden>
+    <h3>Aguardando oponente…</h3>
+    <p>Você: <strong id="myName"></strong></p>
+  </div>
+
+  <!-- Jogo -->
+  <div id="game" class="game-container" hidden>
+    <header>
+      <h1>Jogo da Velha</h1>
+      <p>Você (<strong id="playerSymbol"></strong>) vs <span id="opponentName"></span></p>
+    </header>
+
+    <section class="scoreboard">
+      <div class="score" id="scoreX">X: 0</div>
+      <div class="score" id="scoreDraw">Empate: 0</div>
+      <div class="score" id="scoreO">O: 0</div>
+    </section>
+
+    <section class="customization">
+      <label>Cor do X:</label><input type="color" id="colorX" value="#00ccff"/>
+      <label>Cor do O:</label><input type="color" id="colorO" value="#ff3399"/>
+    </section>
+
+    <section class="soundtrack">
+      <label>🎵 Trilha sonora:</label>
+      <select id="musicSelect">
+        <option value="Track-1.mp3">Track-1</option>
+        <option value="Track-2.mp3">Track-2</option>
+        <option value="Track-3.mp3">Track-3</option>
+      </select>
+      <button id="toggleMusic">▶️ Tocar</button>
+    </section>
+
+    <div class="board" id="board">
+      <button class="cell" data-index="0"></button>
+      <button class="cell" data-index="1"></button>
+      <button class="cell" data-index="2"></button>
+      <button class="cell" data-index="3"></button>
+      <button class="cell" data-index="4"></button>
+      <button class="cell" data-index="5"></button>
+      <button class="cell" data-index="6"></button>
+      <button class="cell" data-index="7"></button>
+      <button class="cell" data-index="8"></button>
+      <div id="winning-line"></div>
+    </div>
+
+    <p id="status">Vez de: <strong id="turnPlayer"></strong></p>
+    <button id="rematchBtn" hidden>Revanche</button>
+
+    <!-- Chat  -->
+  <aside id="chatContainer" class="chat" hidden>
+    <header class="chat-header">
+      <h2>Chat da Partida</h2>
+    </header>
+    <ul id="chatLog" class="chat-log"></ul>
+    <form id="chatForm" class="chat-form">
+      <input
+        type="text"
+        id="chatInput"
+        class="chat-input"
+        placeholder="Digite sua mensagem…"
+        autocomplete="off"
+        maxlength="100"
+      />
+      <button type="submit" class="chat-send">Enviar</button>
+    </form>
+  </aside>
+
+  </div>
+
+  <script>
+    console.log('index.html carregado');
+  </script>
+  <script src="script/script.js"></script>
+</body>
+</html>
